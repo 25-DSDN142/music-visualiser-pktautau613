@@ -5,11 +5,6 @@
 // :) 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(153,136,180);
-  rectMode(CENTER);
-  textAlign(CENTER);
-  textSize(30);
-  fill(255,255,255);
-  noStroke();
   
   
   if(firstRun){
@@ -18,28 +13,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   }
   
   image(myImage, 0, 0);
-
-push()
-
-  stroke(255)
-  noFill()
-  strokeWeight(100)
-  ellipse(270,400,800,800)
-
-pop()
-
-
-  // rect(150,150,800,700)
-  // fill(160,160)
-  // ellipse(150,150,100,100)
-  
-  textFont('Times New Roman');
-  text(words, 250, 250);
- 
-  // // Setup
-  // angleMode(DEGREES);
-  // let midX = canvasWidth / 2;
-  // let midY = canvasHeight / 2;
+  filter(BLUR, 5)
 
   // Map the values to relevant ranges
   let elD = map(drum, 0, 100, 200, 450);
@@ -48,42 +22,96 @@ pop()
   
 
 
-//   // Parameters for the wavy line
-//   let lineY = 800;             // The vertical position of the main line
-//   let amplitude = elV / 8;      // Wave amplitude scales with vocals
-//   let frequency = 0.55 + elV / 10000; // Wave frequency scales with drums
-//   let bassInfluence = elB / 60; // Adds some extra morphing from bass
+  // Parameters for the wavy line
+  let lineY = 350;
+  let lineU = 450;
+  let lineE = 550;
+  let lineI = 650;            
+  let amplitude = elV / 10;      // Wave amplitude scales with vocals
+  let frequency = 0.15 + elD / 10000; // Wave frequency scales with drums
+  let bassInfluence = elB / 100; // Adds some extra morphing from bass
 
-// // Back one (thicker white stroke)
-//   stroke(255);
-//   strokeWeight(500);
-//   noFill();
+// string one
+  stroke(0);
+  strokeWeight(10);
+  noFill();
 
-//   beginShape();
-//   for (let x = 10; x < canvasWidth - 10; x += 1) {
-//     // Animate the wave: counter to shift phase over time
-//     let y = lineY + 
-//             amplitude * sin((x * frequency) + (counter / 3)) +
-//             bassInfluence * cos((x * frequency * 2) + (counter / 2));
-//     vertex(x, y);
-//   }
-//   endShape();
+  beginShape();
+  for (let x = 10; x < canvasWidth - 10; x += 1) {
+    let y = lineY + 
+            amplitude * sin((x * frequency) + (counter / 3)) +
+            bassInfluence * cos((x * frequency * 2) + (counter / 2));
+    vertex(x, y);
+  }
+  endShape();
 
-  
-//   // second stroke
-//   stroke(54, 191, 191);
-//   strokeWeight(400);
-//   noFill();
+  //string two
+  stroke(0);
+  strokeWeight(10);
+  noFill();
 
-//     beginShape();
-//   for (let x = 30; x < canvasWidth - 30; x += 2) {
-//     // Animate the wave: counter to shift phase over time
-//     let y = lineY + 
-//             amplitude * sin((x * frequency) + (counter / 3)) +
-//             bassInfluence * cos((x * frequency * 2) + (counter / 2));
-//     vertex(x, y);
-//   }
-//   endShape();  
+    beginShape();
+  for (let x = 5; x < canvasWidth - 5; x += 1) {
+    let y = lineU + 
+            amplitude * sin((x * frequency) + (counter / 4)) +
+            bassInfluence * cos((x * frequency * 6) + (counter / 2));
+    vertex(x, y);
+  }
+  endShape();  
+
+    // string three
+  stroke(0);
+  strokeWeight(10);
+  noFill();
+
+    beginShape();
+  for (let x = 5; x < canvasWidth - 5; x += 1) {
+    let y = lineE + 
+            amplitude * sin((x * frequency) + (counter / 8)) +
+            bassInfluence * cos((x * frequency * 1) + (counter / 2));
+    vertex(x, y);
+  }
+  endShape();  
+
+      // string four
+  stroke(0);
+  strokeWeight(10);
+  noFill();
+
+    beginShape();
+  for (let x = 5; x < canvasWidth - 5; x += 1) {
+    let y = lineI + 
+            amplitude * sin((x * frequency) + (counter / 1)) +
+            bassInfluence * cos((x * frequency * 7) + (counter / 2));
+    vertex(x, y);
+  }
+  endShape();  
+
+push()
+
+  stroke(54,28,17)
+  noFill()
+  strokeWeight(300)
+  ellipse(245,500,900,900)
+
+  stroke(113,57,35)
+  noFill()
+  strokeWeight(100)
+  ellipse(245,500,600,600)
+
+pop()
+
+  rectMode(CENTER);
+  textAlign(CENTER);
+  textSize(30);
+  fill(213,233,12);
+  stroke(0);
+  strokeWeight(5)
+
+  textFont('Times New Roman');
+  text(words, 250, 800);
+
+  textFont('Brush Script M7')
 
 }
 
