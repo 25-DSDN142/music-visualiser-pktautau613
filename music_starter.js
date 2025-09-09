@@ -2,7 +2,7 @@
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
  let firstRun = true;
  let myImage;
-
+// :) 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(153,136,180);
   rectMode(CENTER);
