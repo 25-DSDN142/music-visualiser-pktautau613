@@ -28,12 +28,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let lineE = 550;
   let lineI = 650;            
   let amplitude = elV / 10;      // Wave amplitude scales with vocals
-  let frequency = 0.15 + elD / 10000; // Wave frequency scales with drums
-  let bassInfluence = elB / 100; // Adds some extra morphing from bass
+  let frequency = 3 + elD / 1000; // Wave frequency scales with drums
+  let bassInfluence = elB / 1000; // Adds some extra morphing from bass
 
 // string one
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(6);
   noFill();
 
   beginShape();
@@ -47,7 +47,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   //string two
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(6);
   noFill();
 
     beginShape();
@@ -61,7 +61,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     // string three
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(6);
   noFill();
 
     beginShape();
@@ -75,7 +75,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
       // string four
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(6);
   noFill();
 
     beginShape();
@@ -89,15 +89,17 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 push()
 
-  stroke(54,28,17)
+  stroke(82, 51, 4)
   noFill()
   strokeWeight(300)
   ellipse(245,500,900,900)
 
-  stroke(113,57,35)
+  stroke(102, 63, 3)
   noFill()
-  strokeWeight(100)
+  strokeWeight(20)
   ellipse(245,500,600,600)
+  ellipse(245,500,650,650)
+  ellipse(245,500,700,700)
 
 pop()
 
